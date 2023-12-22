@@ -45,6 +45,8 @@ export class RightPanelView extends TemplateView {
                 return new InvitePanelView(vm);
             case "verification":
                 return new DeviceVerificationView(vm);
+            case "custom":
+                return new vm.customView(vm);
             default:
                 return new LoadingView();
         }

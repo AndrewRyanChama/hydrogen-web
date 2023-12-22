@@ -35,6 +35,8 @@ export type SegmentType = {
     "members": true;
     "member": string;
     "invite": true;
+    "change-dates": true;
+    "developer-options": true;
     "device-verification": string | boolean;
     "verification": string | boolean;
     "join-room": true;
@@ -60,9 +62,9 @@ function allowsChild(parent: Segment<SegmentType> | undefined, child: Segment<Se
             // downside of the approach: both of these will control which tile is selected
             return type === "room" || type === "empty-grid-tile";
         case "room":
-            return type === "lightbox" || type === "right-panel";
+            return type === "lightbox" || type === "right-panel" || type === "developer-options";
         case "right-panel":
-            return type === "details"|| type === "members" || type === "member" || type === "verification" || type === "invite";
+            return type === "details"|| type === "members" || type === "member" || type === "verification" || type === "invite" || type === "change-dates";
         case "logout":
             return type === "forced";
         default:
@@ -178,7 +180,7 @@ export function parseUrlPath(urlPath: string, currentNavPath: Path<SegmentType>,
             if (sessionSegment) {
                 segments.push(sessionSegment);
             }
-        } else if (type === "details" || type === "members" || type === "verification" || type === "invite") {
+        } else if (type === "details" || type === "members" || type === "verification" || type === "invite" || type === "change-dates") {
             pushRightPanelSegment(segments, type);
         } else if (type === "member") {
             let userId = iterator.next().value;

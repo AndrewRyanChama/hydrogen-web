@@ -55,6 +55,10 @@ export abstract class SimpleTile<T extends object = SegmentType> extends ErrorRe
         return false;
     }
 
+    get isHighlighted() {
+        return this._entry.isHighlighted;
+    }
+
     get needsDateSeparator() {
         return this._needsDateSeparator;
     }

@@ -20,7 +20,7 @@ import { MediaRepository } from "../matrix/net/MediaRepository";
 export function avatarInitials(name: string): string {
     let firstChar = String.fromCodePoint(name.codePointAt(0)!);
     if (firstChar === "!" || firstChar === "@" || firstChar === "#") {
-        firstChar = String.fromCodePoint(name.codePointAt(0)!);
+        firstChar = String.fromCodePoint(name.codePointAt(1)!);
     }
     return firstChar.toUpperCase();
 }

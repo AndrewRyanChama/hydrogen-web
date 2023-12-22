@@ -61,6 +61,7 @@ export function tileClassForEntry(entry: TimelineEntry, options: Options): TileC
                 }
                 const content = entry.content;
                 const msgtype = content && content.msgtype;
+                console.log()
                 switch (msgtype) {
                     case "m.text":
                     case "m.notice":
@@ -86,6 +87,8 @@ export function tileClassForEntry(entry: TimelineEntry, options: Options): TileC
                         return undefined;
                 }
             }
+            case "m.sticker":
+                return ImageTile;
             case "m.room.name":
                 return RoomNameTile;
             case "m.room.member":

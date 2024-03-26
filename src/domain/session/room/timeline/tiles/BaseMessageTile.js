@@ -44,7 +44,7 @@ export class BaseMessageTile extends SimpleTile {
     }
 
     get permaLink() {
-        return `https://matrix.to/#/${encodeURIComponent(this._room.id)}/${encodeURIComponent(this._entry.id)}`;
+        return `https://view.gaytrix.org/roomid/${encodeURIComponent(this._room.id.substring(1))}/event/${encodeURIComponent(this._entry.id)}`;
     }
 
     copyPermalink() {
